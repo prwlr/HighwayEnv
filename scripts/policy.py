@@ -14,6 +14,7 @@ from stable_baselines3.common.torch_layers import (
 )
 from stable_baselines3.common.type_aliases import Schedule
 
+from transformer import TransformerModel
 
 class QNetwork(BasePolicy):
     """
@@ -53,8 +54,15 @@ class QNetwork(BasePolicy):
         self.activation_fn = activation_fn
         self.features_dim = features_dim
         action_dim = int(self.action_space.n)  # number of actions
-        q_net = create_mlp(self.features_dim, action_dim, self.net_arch, self.activation_fn)
-        self.q_net = nn.Sequential(*q_net)
+        # q_net = create_mlp(self.features_dim, action_dim, self.net_arch, self.activation_fn)
+        d_model = features_dim
+        nhead = 1
+        d_hid = 5 
+        dropout = 0.1
+        # encoder_layers = nn.TransformerEncoderLayer(d_model, nhead, d_hid, dropout)
+        # self.q_net = nn.TransformerEncoder(encoder_layers, 2)
+        self.q_net = TransformerModel(action_dim, d_model, nhead, d_hid, 2, dropout)
+        # self.q_net = nn.Sequential(*q_net)
 
     def forward(self, obs: th.Tensor) -> th.Tensor:
         """
