@@ -1,10 +1,5 @@
 ## Monte-Carlo Tree Search
-<p align="center">
-    <video src="videos/rl-video-episode-0.mp4" controls="controls" style="max"></video>
-    <em>The highway-v0 environment episode 0.</em>
-</p>
+https://github.com/prwlr/HighwayEnv/assets/116834165/7686e385-8f9c-46ad-8f3a-758598f67113
 
-<p align="center">
-    <video src="videos/rl-video-episode-1.mp4" controls="controls" style="max"></video>
-    <em>The highway-v0 environment episode 1.</em>
-</p>
+https://github.com/prwlr/HighwayEnv/assets/116834165/c6fbb3ae-7f77-4134-8126-44ae6e05f08c
+
