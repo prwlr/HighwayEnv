@@ -1,0 +1,4 @@
+{
+    "__class__": "<class 'agents.tree_search.mcts.MCTSAgent'>",
+    "env_preprocessors": [{"method":"simplify"}]
+}

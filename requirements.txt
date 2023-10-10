@@ -1,0 +1,15 @@
+gymnasium
+numpy
+pandas
+numba
+pygame
+matplotlib
+seaborn
+six
+docopt
+torch>=1.2.0
+tensorboard
+tensorboardX
+scipy
+xvfbwrapper
+moviepy

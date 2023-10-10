@@ -2,8 +2,10 @@ import gymnasium as gym
 from gymnasium.wrappers import RecordVideo
 from stable_baselines3 import DQN
 
+import sys
+sys.path.insert(1, '/home/marha066/Projects/TSFS12-Project/HighwayEnv-master')
 import highway_env
-
+highway_env.register_highway_envs()
 
 TRAIN = True
 
@@ -28,7 +30,7 @@ if __name__ == '__main__':
 
     # Train the model
     if TRAIN:
-        model.learn(total_timesteps=int(2e4))
+        model.learn(total_timesteps=int(2e2))
         model.save("highway_dqn/model")
         del model
 
