@@ -56,12 +56,14 @@ class QNetwork(BasePolicy):
         action_dim = int(self.action_space.n)  # number of actions
         # q_net = create_mlp(self.features_dim, action_dim, self.net_arch, self.activation_fn)
         d_model = features_dim
-        nhead = 1
-        d_hid = 5 
+        ntoken = action_dim
+        nhead = 5
+        d_hid = 256
+        num_layers = 2
         dropout = 0.1
         # encoder_layers = nn.TransformerEncoderLayer(d_model, nhead, d_hid, dropout)
         # self.q_net = nn.TransformerEncoder(encoder_layers, 2)
-        self.q_net = TransformerModel(action_dim, d_model, nhead, d_hid, 2, dropout)
+        self.q_net = TransformerModel(ntoken, d_model, nhead, d_hid, num_layers, dropout)
         # self.q_net = nn.Sequential(*q_net)
 
     def forward(self, obs: th.Tensor) -> th.Tensor:

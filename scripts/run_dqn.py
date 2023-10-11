@@ -24,17 +24,18 @@ if __name__ == '__main__':
                 gradient_steps=1,
                 target_update_interval=50,
                 verbose=1,
-                tensorboard_log="highway_dqn/")
+                tensorboard_log="dqn_variant/",
+                device='auto')
 
     # Train the model
     if TRAIN:
-        model.learn(total_timesteps=int(2000))
-        model.save("highway_dqn/model")
+        model.learn(total_timesteps=int(100000))
+        model.save("dqn_variant/model")
         del model
 
     # Run the trained model and record video
-    model = DQN.load("highway_dqn/model", env=env)
-    env = RecordVideo(env, video_folder="highway_dqn/videos", episode_trigger=lambda e: True)
+    model = DQN.load("dqn_variant/model", env=env)
+    env = RecordVideo(env, video_folder="dqn_variant/videos", episode_trigger=lambda e: True)
     env.unwrapped.set_record_video_wrapper(env)
     env.configure({"simulation_frequency": 15})  # Higher FPS for rendering
 
